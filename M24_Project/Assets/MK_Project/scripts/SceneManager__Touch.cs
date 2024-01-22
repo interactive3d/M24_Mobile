@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class SceneManager__Touch : MonoBehaviour
 {
     #region Variables
 
+    [Header("Object Elements")]
     [SerializeField]
     private List<GameObject> modelLibrary = new List<GameObject>();
 
@@ -17,9 +20,24 @@ public class SceneManager__Touch : MonoBehaviour
     [SerializeField]
     private int currentModel;
 
+    
+
+    [Header("UI Elements")]
+    [SerializeField]     private Slider settingsVolumeSlider;
+    [SerializeField]     private Slider settingsQualitySlider;
+    [SerializeField]     private Button muteButton;
+    [SerializeField]     private Button qualityButton;
+    [SerializeField]     private Image muteButtonImageOn;
+    [SerializeField]     private Sprite muteOnButtonTexture;
+    [SerializeField]     private Sprite muteOffButtonTexture;
+
+
+
     #endregion
 
     #region UnityMainFunctions
+
+
     private void Start()
     {
         totalNumberOfModels = modelLibrary.Count;
@@ -77,5 +95,32 @@ public class SceneManager__Touch : MonoBehaviour
         }
     }
 
+
+    public void SetAudioManagerMute()
+    {
+        // change value of mute to oposite
+        MainAudioManager.Instance.isTheAudioMutted = !MainAudioManager.Instance.isTheAudioMutted;
+        MainAudioManager.Instance.SetMute(MainAudioManager.Instance.isTheAudioMutted);
+
+        // change the UI button to reflect current stage
+        if (MainAudioManager.Instance.isTheAudioMutted)
+        {
+            muteButtonImageOn.sprite = muteOnButtonTexture;
+        } else if (MainAudioManager.Instance.isTheAudioMutted == false)
+        {
+            muteButtonImageOn.sprite = muteOffButtonTexture;
+        }
+
+    }
+    public void SetAudioManagerVolume()
+    {
+        // get value of the slider
+        float volumeSliderValue = settingsVolumeSlider.value;
+        MainAudioManager.Instance.SetVolume(volumeSliderValue);
+
+
+       
+
+    }
     #endregion
 }

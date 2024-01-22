@@ -3,7 +3,8 @@ using UnityEngine;
 public class MainAudioManager : MonoBehaviour
 {
     private static MainAudioManager instance;
-
+    public float currentVolume = 0.5f;
+    public bool isTheAudioMutted;
     [SerializeField]
     private AudioSource defaultAudioSource;
     [SerializeField]
@@ -43,6 +44,10 @@ public class MainAudioManager : MonoBehaviour
     {
         defaultAudioSource = this.gameObject.AddComponent<AudioSource>();
         defaultAudioSource.clip = this.defaultAudioClip;
+        currentVolume = 0.5f;
+        SetVolume(currentVolume);
+        isTheAudioMutted = false;
+        SetMute(isTheAudioMutted);
         PlayMyAudio();
     }
 
@@ -52,8 +57,11 @@ public class MainAudioManager : MonoBehaviour
     public void SetMute(bool mute) {
         defaultAudioSource.mute = mute;
     }
-    public void SetVolume()   {
-
+    public void SetVolume()
+    {
+        // find slider for vulme
+        // the the value of the slider
+        // setVolume to that value
     }
     public void SetVolume(float volume) { 
         defaultAudioSource.volume = volume;
