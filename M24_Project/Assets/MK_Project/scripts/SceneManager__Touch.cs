@@ -43,6 +43,10 @@ public class SceneManager__Touch : MonoBehaviour
         totalNumberOfModels = modelLibrary.Count;
         currentModel = 0;
         ShowModelOfID(currentModel);
+        if (MainAudioManager.Instance == null)
+        {
+            MainAudioManager.Instance.PlayMyAudio();
+        }
     }
 
     #endregion
