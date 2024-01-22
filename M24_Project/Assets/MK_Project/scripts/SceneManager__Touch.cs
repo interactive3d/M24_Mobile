@@ -30,6 +30,7 @@ public class SceneManager__Touch : MonoBehaviour
     [SerializeField]     private Image muteButtonImageOn;
     [SerializeField]     private Sprite muteOnButtonTexture;
     [SerializeField]     private Sprite muteOffButtonTexture;
+    [SerializeField]     private GameObject settingsPanel;
 
 
 
@@ -40,13 +41,14 @@ public class SceneManager__Touch : MonoBehaviour
 
     private void Start()
     {
+        if (SceneFadeManager.Instance != null)
+        {
+            SceneFadeManager.Instance.StartFadeIn();
+        }
+       
         totalNumberOfModels = modelLibrary.Count;
         currentModel = 0;
         ShowModelOfID(currentModel);
-        if (MainAudioManager.Instance == null)
-        {
-            MainAudioManager.Instance.PlayMyAudio();
-        }
     }
 
     #endregion
@@ -121,10 +123,12 @@ public class SceneManager__Touch : MonoBehaviour
         // get value of the slider
         float volumeSliderValue = settingsVolumeSlider.value;
         MainAudioManager.Instance.SetVolume(volumeSliderValue);
-
-
-       
-
     }
+
+    public void ShowHideSettingWindow(bool status)
+    {
+        settingsPanel.SetActive(status);
+    }
+
     #endregion
 }
