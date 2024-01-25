@@ -6,9 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/MK_Project/Scenes/S01_Intro.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/MK_Project/Scenes/S02_Touch.unity
-    guid: 32774ccef1d5a3247b8a6c1a7ae98233
-  m_configObjects: {}
+    path: Assets/MK_Project/Scenes/S04_ARCore.unity
+    guid: d346b0a6da981c440956c5caa8daa4a4
+  m_configObjects:
+    AR Foundation RemoteARFoundationRemoteLoaderSettings: {fileID: 11400000, guid: 109f65b487224db43a9e41f05984fe3f, type: 2}
+    AR Foundation RemoteARFoundationRemoteSessionRecordsData: {fileID: 11400000, guid: 7e243b6e2c2035c45ba7af1548b8e27f, type: 2}
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 2e11a7614c2b9374c875a3e1d368a32e, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 597b842d7eca79d40bb647cbe889e209, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 4951d1953bf956948b19c130569bb8bb, type: 2}

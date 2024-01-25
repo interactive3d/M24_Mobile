@@ -41,11 +41,6 @@ public class SceneManager__Touch : MonoBehaviour
 
     private void Start()
     {
-        if (SceneFadeManager.Instance != null)
-        {
-            SceneFadeManager.Instance.StartFadeIn();
-        }
-       
         totalNumberOfModels = modelLibrary.Count;
         currentModel = 0;
         ShowModelOfID(currentModel);
